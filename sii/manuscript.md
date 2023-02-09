@@ -8,7 +8,7 @@ The [NIST][1] defines a digital identity as "the unique representation of a subj
 - Centralized: separate identity provider such as PKI and CA.
 - Federated: signle sign-on enabled by a trusted fedrattion of a set of sevice providers and identity provders.
 - User-centric: user can choose identify provider. OAuth and OpenID.
-- User-owned identity: PGP and Self Sovereign Identity
+- User-owned identity: PGP, Bitcoin/Etherum and Self Sovereign Identity
 
 Among all the models, the self-owned identity has strong social and technical requirments.
 
@@ -16,9 +16,10 @@ An IAM has three actors: user, identity provider and service provider. A user re
 
 ## 2 Literature Review and Motivation
 
-The social and technical motivation for Self-owned identity.
+The social and technical motivation for user-owned identity.
 The pros and cons of PGP, SSI, Agent and digital wallet.
-SII meets the [10 principles][2]/requirements of a self-owned identity.
+
+Allen proposed [10 principles][2]/ of a SSI. Existence, control and access are three essential principles that truely define a user-owned identity.
 
 ## 3 The Design
 
