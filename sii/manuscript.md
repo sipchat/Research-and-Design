@@ -1,8 +1,12 @@
-# Sovereign Individual Identity: An Autonomous Triad of User, Identify Provideer and Service Provider
+# Sovereign Individual Identity: An Autonomous Triad of User, Identify Provider and Service Provider
+
+## Abstract
+
+Sovereign Individual Identity (SII) is a new identity managment (IDM) model that provides independent existence and full control of a subject's identity. What differentiate SII from other user-owned identity is that it is an autonomous triad of user, identity provider, and service provider. A typical SII-based IDM system has a subject owned server that provides fundamental functions of computation, storage and communication used by identity management. The server and its clients of mobile phones/PCs form an identity managment closure that provides the independency, full control and many other desired properties required by a sovereign individual in one's digital life. The proposed SSI is discussed in the context of communication and expression, argumbly two basic activities in one's digital life.
 
 ## 1 Introduction
 
-The [NIST][1] defines a digital identity as "the unique representation of a subject engaged in an online transaction.". In practice, a digital identity represents the information that uniquely identifies a specific individual, group, or organization in its social context. A digital identity system is called an identity and access management (IAM) because the primary usage of an identity is for access control. There are sevearl IAM models during its evolution:
+The [NIST][1] defines a digital identity as "the unique representation of a subject engaged in an online transaction.". In practice, a digital identity represents the information that uniquely identifies a specific individual, group, or organization in its social context. There are sevearl Identity Management (IDM) models during its evolution:
 
 - Isolated: service provider is also identity provider
 - Centralized: separate identity provider such as PKI and CA.
@@ -19,7 +23,9 @@ An IAM has three actors: user, identity provider and service provider. A user re
 The social and technical motivation for user-owned identity.
 The pros and cons of PGP, SSI, Agent and digital wallet.
 
-Allen proposed [10 principles][2]/ of a SSI. Existence, control and access are three essential principles that truely define a user-owned identity.
+[Allen][2] proposed 10 principles of a SSI. Existence and control are two essential principles that truely define a user-owned identity.
+
+[Neuman][3] identified the need for closure in distributed system.
 
 ## 3 The Design
 
@@ -43,3 +49,4 @@ Pros and cons of SII.
 
 [1]: https://pages.nist.gov/800-63-3/sp800-63-3.html "Digital Identity Guidelines"
 [2]: http://www.lifewithalacrity.com/2016/04/the-path-to-self-soverereign-identity.html "The Path to Self-Sovereign Identity"
+[3]: https://dl.acm.org/doi/abs/10.1145/70730.70735 "The need for closure in large distributed systems"
