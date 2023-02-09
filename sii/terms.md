@@ -12,6 +12,8 @@ Object: a passive entity that is being accessed by a subject.
 
 Personal Identifiable Information (PII): attributes that can assist in the revealing or tracing of an individual's identity.
 
-Subjects: an entity, such as an individual, a group, an organization or a things that are under consideration.
+Sovereign Individual Identity (SII): an identity managment (IDM) model that provides independent existence and full control of a subject's identity.
+
+Subject: an entity, such as an individual, a group, an organization or a things that are under consideration.
 
 Verifiable Credentail: a set of tamper-evident claims and metadata that cryptographically prove who issued it.
