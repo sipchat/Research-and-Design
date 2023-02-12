@@ -2,32 +2,73 @@
 
 The ultimate goal of Sichat is letting everyone to own and control the neccessary digital assets as a sovereign individual in the digital age. What differentiate Sichat from other similar decentralized systems is its first principle of "Bring Your Own Server (BYOS)".
 
-## Why BYOS?
+## 1 Why BYOS?
 
-Merriam-Webster defines [sovereign](https://www.merriam-webster.com/dictionary/sovereign) as "possessed of supreme power; unlimited in extend; enjoying autonomy". To be a sovereign individual in the gitial age, a person should independently own and fully control his/her digital assets and social activities within a limited sphere. As the first principle, an individual needs to own essential hardware and software resourcces to exist and live digitally. It is named as "Bring Your Own Server (BYOS)" to represent the following essentail hardware and software resources:
+Merriam-Webster defines [sovereign](https://www.merriam-webster.com/dictionary/sovereign) as "possessed of supreme power; unlimited in extend; enjoying autonomy". To be a sovereign individual in the gitial age, a person should independently own and fully control his/her digital assets and social activities within a limited sphere. As the first principle, an individual needs to own essential hardware and software resourcces to exist and live digitally. The principle is named as "Bring Your Own Server (BYOS)" to represent the following essentail hardware and software resources:
 
-- Hardware: computer, storage, and network.
+- Hardware: computer, storage, and network connection.
 - Software: identity and access management (IAM) and communication.
 
-The hardware resources include the basic physical equipments for computation, data storage and data communication. An individual should own and has full control of these resources. Technically, the equipments can be in one's own places, or more commonly, are leased from a cloud service provider. Because an individual's digital life depends on the hardware resources, these resources must be highly availabe, highly reliable, highly scalable, economically feasible, and easy to use. The term `Server` highlights these non-functional requirements. Today, a leased server and storage space from a cloud service provider fulfills most requirements. However, a home computer or a smart phone is not a server by the above definition. For example, a smart phone is not a qualified server though it combines computer, storage and newtwork components. A smart phone can be offline or turned off frequently. To make it worse, it could be lost forever. Due to its small size and limited expandablity, it is not scalable in computation, storage and bandwidth. However, due to its mobility and rich functions, it is the UI to the server operations.
+The hardware resources include the basic physical equipments for computation, data storage and data communication. An individual must own and has full control of these resources. Technically, the hardware resources can be in one's own places, or more commonly, are leased from a cloud service provider. Because an individual's digital life depends on the hardware resources, these resources must be highly availabe, highly reliable, highly scalable, economically feasible, and easy to use. Bring Your Own Server (BYOS) is the answer to these requirments.,Today, a leased server and storage space from a cloud service provider fulfills most requirements.  The term `Server` represents the computer/storage/network connections and highlights the availability, reliablity and scalability requirements. A home computer or a smart phone is not a server by the above definition. For example, a smart phone is not a qualified server though it combines computer, storage and newtwork components. A smart phone can be offline or turned off frequently. To make it worse, it could be totally lost, forever. Due to its small size and limited expandablity, it is not scalable in computation, storage and bandwidth.
 
-BYOS is an necessity for both IAM and communication. An identity is a basic requirment in most social interactions. There are three basic roles in an IAM system to manage identity(ID) or the more general verifiable credential(VC): issuer, holder, and verifier. An independent and autonomous IAM system requires a sovereign individual's server to play all three roles. The IAM system should alwasy work even when an individual is offline. The ID data requires secure and reliable storage.
+In terms of software functions, BYOS is an necessity for both IAM and communication. An identity is a basic requirment in most social interactions. There are three basic roles in an IAM system to manage identity(ID) or the more general verifiable credential(VC): issuer, holder, and verifier. An independent and autonomous IAM system requires a sovereign individual's server to play all three roles. The IAM system should alwasy work even when an individual is offline. The ID data requires secure and reliable storage.
 
 Similarly, an individual should always be able to receive messages and store messages in a secure and reliable way.
 
-Conversly, without BYOS, an individual either has to rely on a third party or occasionally lose identity and communication services. The individual is not a sovereign individual in both cases.
+Conversly, without BYOS, an individual's hardware such as a smart phone or a PC will have a limited availability, reliability and scalability:
 
-## What's It?
+- availability: the client is often offline.
+- reliability: the client, compared with a cloud server, has a high probability of failure or data lose. Identity data and other important must be stored in other safe places.
+- scaliability: the client has limited capacity in computation, storage and communication. It keeps only the recent data.
 
-The Sichat consists of many decentralized P2P overlay networks running on top of physical networks such as the Internet or telecom networks. Each Sichat network has one or more Sovereign Individual System(SIS)s. An SIS may join mutiple Sichat networks. There is a many-to-many relationship between a Sichat network and an SIS. An SIS consists of a pair of server and client. A server is a combination of computer, storage and network connection running in the cloud. The server provides the IAM and communication services to its owner and other authorized indidviduals. A client is a smart phone, Pad or a PC that let the individual use and manage all services. A client provides the UI and local storage for cached/offline data.
+Without BYOS, an individual either has to rely on a third party or occasionally lose identity and communication services. The individual is not a sovereign individual in the first case. In the second case, the individual occasionally loses digital access or, much wrose, totally loses digital identity. Both are unacceptable situations in digital age. Nonetheless, due to their increasing process power and mobility/locality, smart phones, pads, laptops, or PCs provide UI and cached/offline data for an individual's digital life. A smartphone/Pad/laptop/PC used by an individual in the digital world is called a `client`.
 
-In practice, many individuals don't need the high availibity and reliability or a group of individuals only needs one server to provide the desired quality of service. In this case, they can use a weak individual system (WIS). A WIS runs in a smart phone or a personal computer thus it is not always online. A WIS has all functions of an SIS. It is weak in the sense that it may go offline anytime or is offline most of the time. A WIS may optionally setup a backup storage in case an individual losts the device. A WIS can upgrade to an SIS when the individual setup a server.
+Therefore, to live a fully automous life in the digital age, an individual needs to follow the BYOS principle.
 
-For different networks or different services, a client may work in one of two modes:
+## 2 What's a Sovereign Network and Sovereign Individual System(SIS) ?
 
-- Full client (FC): an FC has a corresponding server. Its SIIIs are stored both locally and in its server. It is up to each individual FC to define and implement its key recovery mechanism. An FC only communicates with its server.
-- Weak client (WC): a WC doesn't have a server. We use the term "weak" to highlight that the WMC is not reliable and is not recommended for a soverign individual. A WC's SIIIs are stored only in simple mode clients. When a WC is lost, the group server may bind a chat name with a new public key. The new binding will generate a public name binding event. A WC communicates with one or more servers of other FCs.
+The Sichat consists of many decentralized P2P overlay networks, called `sovereign network (SN)`, running on top of physical networks such as the Internet or telecom networks. Each Sichat network has one or more `Sovereign Individual System(SIS)`s. An SIS may join mutiple Sichat networks. There is a many-to-many relationship between a Sichat network and an SIS. An SIS consists of a pair of server and client. A server is a combination of computer, storage and network connection running in the cloud. The server provides the IAM and communication services to its owner and other authorized indidviduals. A client is a smart phone, Pad or a PC that let the individual use and manage all services.
 
-Evey client has a device-related key pair used to identify each device. An FC stores all SIII key pairs and its device key pairs in its server.
+There are many detail design decisions to be made in both hardware and software levels.
+
+### 2.1 Hardware Architecture
+
+At the hardware level, does everyone have a server in a sovereign network? There are three possible cases:
+
+- Every individual has a server.
+- Some individuals don't have a cloud server.
+- Nobody has a cloud server.
+
+Things become complicated because the network status is dynamice: all dividuals in a sovereign network may lose access to their servers because they are all in a location without Internet access. An individual without a server initially may want to creat a server. An individual with a server initially may want to remove the server.
+
+In practice, many individuals don't need the high availibity and reliability. A group of individuals only needs one server to provide the desired quality of service. Some individuals cannot own a server for reasons such as age, knowledge, and accessibility
+
+Additionally, even every individual in a sovereign network has a server, there is no need to run every service or keep all data in all servers.
+
+The design of SN and SIS should handle all hardware configurations and changes. Sichat should provide appropriate services in all cases.
+
+### 2.2 Software Architecture
+
+At the software level, what is the distribution of funcitons between the server and client? The followings are three possible models:
+
+- The client only provides the UI, basic presentation logics and local storage for cached/offline data. The server performs all other functions. Is is called `light client (LC)` model.
+- The client presents UI and performs most functions when it is active. The server works as a hot standby of its client. It is called `active client (FC)` model. Due to the non-functional concerns of availability, reliablity and scalability, the server still performs some functions that cannot be handled by the clients. For example, historical data or large data processing.
+- The client performs a moderate number of functions that don't require high availability/reliability/scalability. For example, sending messages. The server performs real time functions such as receiving mesages, identity/VC services, large dataset processing etc. It is called `distributed function (DF)` model.
+
+### 2.3 Model Evaluation
+
+We use a scale of 0 (not working) to 4 (good by most criterias).
+
+| Hardware | Light Client | Full Client | Distributed Function|
+| --- | --- | --- | --- |
+| Everyone has a server | 4 | 2 (full redundancy) | 3 (some redundancy) |
+| Some don't have a server | 1 (Some lose access) | 3 (some redundancy) | 2 (limited services) |
+| None has a server | 0 (all lose access) | 3 (limited size) | 2 (limited services) |
+| Server is unaccessible | 0 (no service) | 4 | 3 (limited services |
+| Add a server | 1 (big change) | 4 | 3 (small change) |
+| Remove a server | 1 (big change) | 4 | 3 (small change) |
+| Total | 7 | 20 | 19 |
+
+We might want to support all three models and switch models based on hardware status and software service properties.
 
 ## How Does It Work?
