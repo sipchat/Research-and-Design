@@ -49,11 +49,18 @@ The design of SN and SIS should handle all hardware configurations and changes. 
 
 ### 2.2 Software Architecture
 
-At the software level, what is the distribution of funcitons between the server and client? The followings are three possible models:
+At the software level, a basic decision is the distribution of funcitons between the server and client. To make the distribution decision, we categorize the functions into three types: client-only, server-only and floating.
 
-- The client only provides the UI, basic presentation logics and local storage for cached/offline data. The server performs all other functions. Is is called `light client (LC)` model.
-- The client presents UI and performs most functions when it is active. The server works as a hot standby of its client. It is called `active client (FC)` model. Due to the non-functional concerns of availability, reliablity and scalability, the server still performs some functions that cannot be handled by the clients. For example, historical data or large data processing.
-- The client performs a moderate number of functions that don't require high availability/reliability/scalability. For example, sending messages. The server performs real time functions such as receiving mesages, identity/VC services, large dataset processing etc. It is called `distributed function (DF)` model.
+- Client-only: client output (presentation logics), client inputs (including keyboards, voice, camera, sensors, locations etc), local storage for cached/offline data, client networking (including data, text, direct link).
+- Server-only: IAM (must be reliable and better highly available), real-time receiving/routing messages, blog and transaction server that provides real-time online services.
+- Cleint or Server: most functions can run in either the server or the client. The question is which is the primary.
+
+For client or server services, there are many possible models:
+
+- The server performs most functions. It is called `light client (LC)` model. If the server is down or not accessible, the floating services are unavailable.
+- The client performs most functions. The server works as a hot standby of its client. It is called `active client (FC)` model.
+- Both the client and the server perform a set of pre-assigned non-overlapping functions. It is called `pre-assigned service` model.
+- The servicess can run either in client and server. The services dynamically float based on a set of pre-define rules or the client/server availability. It is called `floating service` model.
 
 ### 2.3 Model Evaluation
 
