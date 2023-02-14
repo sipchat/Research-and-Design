@@ -45,37 +45,107 @@ In practice, many individuals don't need the high availibity and reliability. A 
 
 Additionally, even every individual in a sovereign network has a server, there is no need to run every service or keep all data in all servers.
 
-The design of SN and SIS should handle all hardware configurations and changes. Sichat should provide appropriate services in all cases.
+The design of SN and SIS should handle all hardware configurations and changes. Sichat should provide appropriate services in following cases:
+
+- Basic Settings
+  - No server
+  - One server
+  - Multiple servers
+- Add a server in  basic settings
+- Remove a server in basic settings
 
 ### 2.2 Software Architecture
 
 At the software level, a basic decision is the distribution of funcitons between the server and client. To make the distribution decision, we categorize the functions into three types: client-only, server-only and floating.
 
 - Client-only: client output (presentation logics), client inputs (including keyboards, voice, camera, sensors, locations etc), local storage for cached/offline data, client networking (including data, text, direct link).
-- Server-only: IAM (must be reliable and better highly available), real-time receiving/routing messages, blog and transaction server that provides real-time online services.
-- Cleint or Server: most functions can run in either the server or the client. The question is which is the primary.
+- Server-only: IAM (must be reliable and better highly available and secure permanent data storage), real-time receiving/routing messages, blog and transaction server that provides always-on real-time online services.
+- Flexible: most functions can run in either the server or the client. The question is which is the primary.
 
-For client or server services, there are many possible models:
+For each flexible service, there are four possibilities: fixed in server, fixed in client, dynamic default in client, dynamic default in server. Together, all flexible services can be distributed in many possible models:
 
-- The server performs most functions. It is called `light client (LC)` model. If the server is down or not accessible, the floating services are unavailable.
-- The client performs most functions. The server works as a hot standby of its client. It is called `active client (FC)` model.
-- Both the client and the server perform a set of pre-assigned non-overlapping functions. It is called `pre-assigned service` model.
-- The servicess can run either in client and server. The services dynamically float based on a set of pre-define rules or the client/server availability. It is called `floating service` model.
+- The client performs minimum functions. It is called `light client (LC)` model. If the server is down or not accessible, most services are unavailable.
+- The client performs most functions. The server works as a hot standby of its client. It is called `active client (AC)` model.
+- Both the client and the server perform a set of pre-assigned non-overlapping functions. It is called `fixed services (FS)` model.
+- The servicess can run either in client and server. The services dynamically change running platform based on a set of pre-define rules or the client/server availability. It is called `dynamic services (DS)` model.
 
 ### 2.3 Model Evaluation
 
 We use a scale of 0 (not working) to 4 (good by most criterias).
 
-| Hardware | Light Client | Full Client | Distributed Function|
-| --- | --- | --- | --- |
-| Everyone has a server | 4 | 2 (full redundancy) | 3 (some redundancy) |
-| Some don't have a server | 1 (Some lose access) | 3 (some redundancy) | 2 (limited services) |
-| None has a server | 0 (all lose access) | 3 (limited size) | 2 (limited services) |
-| Server is unaccessible | 0 (no service) | 4 | 3 (limited services |
-| Add a server | 1 (big change) | 4 | 3 (small change) |
-| Remove a server | 1 (big change) | 4 | 3 (small change) |
-| Total | 7 | 20 | 19 |
+#### 2.3.1 Light Client (LC)
 
-We might want to support all three models and switch models based on hardware status and software service properties.
+The LC model has a simple client software (4) and a relatively simple server software (3).
+
+- Basic Settings
+  - No server (0): not working.
+  - One server (3): it works well in small to medium scale (the server is assumed highly available, scalable and reliable).
+  - Multiple servers (4): it works well in small and large.
+- Add a server
+  - No server to one server (0): it is not an option because LC needs at least one server.  
+  - One server to multiple servers (2): a big change to add server-to-server protocol.
+- Remove a server
+  - One server to no server (0): not working
+  - Multiple servers to one server (2): a big change and limited scale.
+
+#### 2.3.2 Fixed Service (FS)
+
+In FS model, the client and server have a balanced software functions. Software are simple as they have fixed running platform. Client software (3), server software (3)
+
+- Basic Settings
+  - No server (0): it loses all server functions.
+  - One server (3): it works in small scale because all server functions are running in one server.
+  - Multiple servers (4): it works well.
+- Add a server
+  - No server to one server (0): it is not an option because LC needs at least one server.  
+  - One server to multiple servers (4): it works well.
+- Remove a server
+  - One server to no server (0): not working
+  - Multiple servers to one server (2): it works in a limited scale.
+
+#### 2.3.3  Active Client (AC)
+
+In AC model, the client and server share many software functions but two cons: the software is more complicated and the service migration maybe hard. Client software (3), server software (3).
+
+- Basic Settings
+  - No server (4): it works in p2p mode in small scale. It needs to buffer messages if peers are offline. It has limited use scenarios.
+  - One server (3): it works well in small to medium scale (the server is assumed highly available, scalable and reliable). The server is not fully utilized.
+  - Multiple servers (3): It work well in small and large scale. Servers are not fully utilized.
+- Add a server
+  - No server to one server (4): it just adds a standby server.  
+  - One server to multiple servers (4): it adds one more standby server.
+- Remove a server
+  - One server to no server (4): it loses the standby server.
+  - Multiple servers to one server (4): it loses one standby server.
+
+#### 2.3.4 Dynamic Service (DS)
+
+The DS model is similar to AC model that they both support service migration. But DS model has an important difference: the services are distributed in both server and client by default and the migration rules are flexible. In DS model, both client and server softare are complext to support smooth service migration. Client software (2), server software (2).
+
+- Basic Settings
+  - No server (3): it works in p2p mode in small scale. It needs to buffer messages if peers are offline. It has limited use scenarios.
+  - One server (4): it works well in small to medium scale (the server is assumed highly available, scalable and reliable).
+  - Multiple servers (4): It works well in small and large scale.
+- Add a server
+  - No server to one server (4): it migrates services.  
+  - One server to multiple servers (4): it migrates more services.
+- Remove a server
+  - One server to no server (3): it needs service migration.
+  - Multiple servers to one server (4): it migrates some services.
+
+#### 2.3.6 Score Summary
+
+| HW/SW | LC| AC | FS | DS |
+| --- | --- | --- | --- | --- |
+| Client SW | 4 | 3 | 3 | 2 |
+| Server SW | 3 | 3 | 3 | 2 |
+| 0 server | 0 | 4 | 0 | 3 |
+| 1 Server | 3 | 3 | 3 | 4 |
+| Many Servers | 4 | 3 | 4 | 4|
+| 0 to 1 | 0 | 4 | 0 | 4 |
+| 1 to many | 2| 4 | 4 | 4 |
+| 1 to 0 | 0 | 4 | 0 | 3|
+| many to 1 | 2| 4 | 2 | 4 |
+| Summary | 14 | 34 | 18 | 30 |
 
 ## How Does It Work?
