@@ -38,13 +38,10 @@ To exercise sovereignty in the digital age, individuals must embrace the OYIS pr
 
 
 TODO:  
-review transition from centralized (FIDO and OIDC) to decentralied self-sovereign identity
-some self-sovereign identity and DID summary papers. 
+some self-sovereign identity and DID papers. 
 Four self-sovereign identity system reviews: PGP (big usage issue), Bitcoin and digital wallet (partial solution), https://nostr.com/ (simple and limited solution)
 
-In today's digital world, the pervasive issues of identity theft, data breaches, and privacy violations are increasingly rampant. Conventional identity systems rely on centralized authorities, such as governments or corporations, to verify and manage identities. However, such centralized systems may be vulnerable to attacks, data leaks, or abuse of power. Furthermore, these systems often curtail users' control over their data and may share or sell it without their consent. 
-
-To tackle these problems, a novel paradigm of user-owned identity has emerged, which empowers users to manage their identity information. Self-sovereign identity (SSI) systems, based on blockchain and other decentralized technologies, allow users to create and manage their digital identities without relying on centralized authorities or intermediaries. 
+In today's digital world, the pervasive issues of identity theft, data breaches, and privacy violations are increasingly rampant. Conventional identity systems before SSI rely on centralized authorities, such as governments or corporations, to verify and manage identities. However, such centralized systems may be vulnerable to attacks, data leaks, or abuse of power. Furthermore, these systems often curtail users' control over their data and may share or sell it without their consent. To tackle these problems, a novel paradigm of user-owned identity has emerged, which empowers users to manage their identity information. Self-sovereign identity (SSI) systems, based on blockchain and other decentralized technologies, allow users to create and manage their digital identities without relying on centralized authorities or intermediaries. Allen (Allen, 2016) showed the evolution of identity from the centralized solutions to self-sovereign identity.
 
 The main aim of SSI systems is to provide privacy, security, and user control while enabling trustworthy interactions and transactions in the digital realm. However, most existing SSI systems still rely on blockchain, which may have limitations in terms of scalability, energy consumption, and accessibility. Therefore, alternative approaches to user-owned identity that do not rely on blockchain yet offer similar features and benefits are necessary. 
 
@@ -61,6 +58,8 @@ In recent years, the concept of self-sovereign identity (SSI) has gained signifi
 As highlighted by Andreas, existing public key infrastructures (PKIs) can also be used, with the key consideration being the privacy of the holder and the need for a trust framework to ensure the authenticity of the data.  In addition to that article, another relevant paper is from Clifford Neuman [6]. He discusses the challenges associated with maintaining consistency in large distributed systems, highlighting the importance of closure as a means of ensuring the reliability and security of the system. This concept is particularly relevant to SSI systems, which require a trust framework to ensure the authenticity of data transfers.  
 
 Overall, the literature suggests that while blockchain technology can be used in SSI systems, it is not a prerequisite. Rather, the critical characteristic of SSI is decentralization, which is achieved through the use of cryptography and the creation of critical pairs. As such, any storage location that ensures privacy and authenticity can be used for public keys, with the need for a trust framework being a critical consideration. Additionally, the concept of closure discussed by Neuman highlights the importance of ensuring reliability and security in large distributed systems such as SSI.
+
+The first successful SSI system might be PGP (Zimmermann, 1995) that uses the public-key cryptography to exchange files or messages with privacy and authentication. A PGP user binds a public key with the user name to create an identity of the user. The IDs are shared directly between a sender and a receiver in an out-of-band authentication or via the PGP web of trust. It is a decentralized autonomous IAM system. However, (Ruoti et al., n.d., #)of PGP were constrained by various usability and key management issues (Ruoti et al., 2016).
 
 4.  The Design of Sovereign Individual System (SIS)
 
@@ -91,13 +90,12 @@ In this paper, we propose an innovative approach to user-owned identity that doe
 References 
 
 
-1 Grassi, Paul A, Garcia, Michael E. 2005. “The Laws of Identity” https://learn.microsoft.com/en-us/previous-versions/dotnet/articles/ms996456(v=msdn.10)?redirectedfrom=MSDN
-2 Cameron, Kim. 2005. “The Laws of Identity” https://learn.microsoft.com/en-us/previous-versions/dotnet/articles/ms996456(v=msdn.10)?redirectedfrom=MSDN
-3 Respect Network. 2016. “The Respect Trust Network v2.1”. oixnet.org. http://oixnet.org/wp-content/uploads/2016/02/respect-trust-framework-v2-1.pdf
-4 Verifiable Claims Task Force. 2006. “[Editor Draft] Verifiable Claims Working Group Frequently Asked Questions”. W3C Technology and Society Domain. http://w3c.github.io/webpayments-ig/VCTF/charter/faq.html
-5 Allen, Christopher. Ten principles https://github.com/WebOfTrustInfo/self-sovereign-identity/blob/master/self-sovereign-identity-principles.md
-6 Andreas. Self Sovereign Identity ≠ Blockchain https://jolocom.io/blog/dezentrale-identitaten-not-blockchain-2/
-7 Neuman, Clifford B. The Need for Closure in Large Distributed Systems https://dl.acm.org/doi/abs/10.1145/70730.70735
+1 Cameron, Kim. 2005. “The Laws of Identity” https://learn.microsoft.com/en-us/previous-versions/dotnet/articles/ms996456(v=msdn.10)?redirectedfrom=MSDN
+2 Respect Network. 2016. “The Respect Trust Network v2.1”. oixnet.org. http://oixnet.org/wp-content/uploads/2016/02/respect-trust-framework-v2-1.pdf
+3 Verifiable Claims Task Force. 2006. “[Editor Draft] Verifiable Claims Working Group Frequently Asked Questions”. W3C Technology and Society Domain. http://w3c.github.io/webpayments-ig/VCTF/charter/faq.html
+4 Allen, Christopher. Ten principles https://github.com/WebOfTrustInfo/self-sovereign-identity/blob/master/self-sovereign-identity-principles.md
+5 Andreas. Self Sovereign Identity ≠ Blockchain https://jolocom.io/blog/dezentrale-identitaten-not-blockchain-2/
+6 Neuman, Clifford B. The Need for Closure in Large Distributed Systems https://dl.acm.org/doi/abs/10.1145/70730.70735
 
 
 
